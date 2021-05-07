@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using LS_Action.CustomControls;
 using LS_Action.Droid;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(Entry), typeof(CustomEntryRenderer))]
+[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRenderer))]
 namespace LS_Action.Droid
 {
     public class CustomEntryRenderer : EntryRenderer

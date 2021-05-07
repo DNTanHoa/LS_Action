@@ -4,8 +4,12 @@
              xmlns:prism="http://prismlibrary.com"
              x:Class="LS_Action.App">
   <Application.Resources>
-
-    <!-- Application resource dictionary -->
-
-  </Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">navy</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
 </prism:PrismApplication>

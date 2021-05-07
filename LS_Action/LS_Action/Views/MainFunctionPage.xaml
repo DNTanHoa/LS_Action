@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="{Binding Title}"
+             x:Class="LS_Action.Views.MainFunctionPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackLayout Padding="10,5" Grid.Row="0">
+            <Frame BackgroundColor="Transparent"
+                   CornerRadius="6"
+                   BorderColor="Navy">
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout>
+                        <Label Text="REPORT ISSUE" TextColor="Navy"></Label>
+                        <Label Text="Report machine issue to technical support employee" TextColor="Gray"></Label>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="EndAndExpand"
+                                 VerticalOptions="CenterAndExpand">
+                        <Image Source="right.png" HeightRequest="40"
+                               WidthRequest="40"></Image>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+        <StackLayout Padding="10,5" Grid.Row="1">
+            <Frame BackgroundColor="Transparent"
+                   CornerRadius="6"
+                   BorderColor="Navy">
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout>
+                        <Label Text="ISSUE DICTIONARY" TextColor="Navy"></Label>
+                        <Label Text="Lookup issue for machine to get solutions by yourself" TextColor="Gray"></Label>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="EndAndExpand"
+                                 VerticalOptions="CenterAndExpand">
+                        <Image Source="right.png" HeightRequest="40"
+                               WidthRequest="40"></Image>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+        <StackLayout Padding="10,5" Grid.Row="2">
+            <Frame BackgroundColor="Transparent"
+                   CornerRadius="6"
+                   BorderColor="Navy">
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout>
+                        <Label Text="TECHNICAL SUPORTER" TextColor="Navy"></Label>
+                        <Label Text="Find and contact to technical supporters" TextColor="Gray"></Label>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="EndAndExpand"
+                                 VerticalOptions="CenterAndExpand">
+                        <Image Source="right.png" HeightRequest="40"
+                               WidthRequest="40"></Image>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </Grid>
+</ContentPage>
