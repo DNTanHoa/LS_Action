@@ -3,64 +3,76 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
+             prism:Navigation.CanNavigate="True"
+             NavigationPage.HasNavigationBar="False"
              Title="{Binding Title}"
              x:Class="LS_Action.Views.MainFunctionPage">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-        </Grid.RowDefinitions>
-        <StackLayout Padding="10,5" Grid.Row="0">
-            <Frame BackgroundColor="Transparent"
+    <ScrollView>
+        <StackLayout>
+            <StackLayout Margin="0" BackgroundColor="Navy" Padding="8">
+                <Label Text="{Binding Title}" 
+                       TextColor="White"
+                       Padding="5"
+                       FontSize="Title"></Label>
+            </StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackLayout Padding="10,5" Grid.Row="0">
+                    <Frame BackgroundColor="Transparent"
                    CornerRadius="6"
                    BorderColor="Navy">
-                <StackLayout Orientation="Horizontal">
-                    <StackLayout>
-                        <Label Text="REPORT ISSUE" TextColor="Navy"></Label>
-                        <Label Text="Report machine issue to technical support employee" TextColor="Gray"></Label>
-                    </StackLayout>
-                    <StackLayout HorizontalOptions="EndAndExpand"
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label Text="REPORT ISSUE" TextColor="Navy"></Label>
+                                <Label Text="Report machine issue to technical support employee" TextColor="Gray"></Label>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand"
                                  VerticalOptions="CenterAndExpand">
-                        <Image Source="right.png" HeightRequest="40"
+                                <Image Source="right.png" HeightRequest="40"
                                WidthRequest="40"></Image>
-                    </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
                 </StackLayout>
-            </Frame>
-        </StackLayout>
-        <StackLayout Padding="10,5" Grid.Row="1">
-            <Frame BackgroundColor="Transparent"
+                <StackLayout Padding="10,5" Grid.Row="1">
+                    <Frame BackgroundColor="Transparent"
                    CornerRadius="6"
                    BorderColor="Navy">
-                <StackLayout Orientation="Horizontal">
-                    <StackLayout>
-                        <Label Text="ISSUE DICTIONARY" TextColor="Navy"></Label>
-                        <Label Text="Lookup issue for machine to get solutions by yourself" TextColor="Gray"></Label>
-                    </StackLayout>
-                    <StackLayout HorizontalOptions="EndAndExpand"
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label Text="ISSUE DICTIONARY" TextColor="Navy"></Label>
+                                <Label Text="Lookup issue for machine to get solutions by yourself" TextColor="Gray"></Label>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand"
                                  VerticalOptions="CenterAndExpand">
-                        <Image Source="right.png" HeightRequest="40"
+                                <Image Source="right.png" HeightRequest="40"
                                WidthRequest="40"></Image>
-                    </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
                 </StackLayout>
-            </Frame>
-        </StackLayout>
-        <StackLayout Padding="10,5" Grid.Row="2">
-            <Frame BackgroundColor="Transparent"
+                <StackLayout Padding="10,5" Grid.Row="2">
+                    <Frame BackgroundColor="Transparent"
                    CornerRadius="6"
                    BorderColor="Navy">
-                <StackLayout Orientation="Horizontal">
-                    <StackLayout>
-                        <Label Text="TECHNICAL SUPORTER" TextColor="Navy"></Label>
-                        <Label Text="Find and contact to technical supporters" TextColor="Gray"></Label>
-                    </StackLayout>
-                    <StackLayout HorizontalOptions="EndAndExpand"
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label Text="TECHNICAL SUPPORTER" TextColor="Navy"></Label>
+                                <Label Text="Find and contact to technical supporters" TextColor="Gray"></Label>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand"
                                  VerticalOptions="CenterAndExpand">
-                        <Image Source="right.png" HeightRequest="40"
+                                <Image Source="right.png" HeightRequest="40"
                                WidthRequest="40"></Image>
-                    </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
                 </StackLayout>
-            </Frame>
+            </Grid>
         </StackLayout>
-    </Grid>
+    </ScrollView>
 </ContentPage>

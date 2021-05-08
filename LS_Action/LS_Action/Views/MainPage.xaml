@@ -2,6 +2,9 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             x:Class="LS_Action.Views.MainPage"
+            xmlns:prism="http://prismlibrary.com"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            prism:Navigation.CanNavigate="True"
             NavigationPage.HasNavigationBar="False"
             xmlns:local="clr-namespace:LS_Action.Views"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
@@ -11,14 +14,6 @@
             BarBackgroundColor="Navy"
             BarTextColor="White"
             Title="{Binding Title}">
-    <NavigationPage Title="Home" IconImageSource="home.png">
-        <x:Arguments>
-            <local:MainFunctionPage />
-        </x:Arguments>
-    </NavigationPage>
-    <NavigationPage Title="Machine Status" IconImageSource="machine.png">
-        <x:Arguments>
-            <local:MachineStatusPage />
-        </x:Arguments>
-    </NavigationPage>
+    <local:MainFunctionPage Title="Home" IconImageSource="home.png" NavigationPage.HasNavigationBar="True"/>
+    <local:MachineStatusPage Title="Machine Status" IconImageSource="machine.png"/>
 </TabbedPage>

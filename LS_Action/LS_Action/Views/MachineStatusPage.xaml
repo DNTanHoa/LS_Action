@@ -3,6 +3,80 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
+             Title="{Binding Title}"
+             NavigationPage.HasNavigationBar="True"
              x:Class="LS_Action.Views.MachineStatusPage">
-  
+    <StackLayout>
+        <StackLayout Margin="0" BackgroundColor="Navy" Padding="8">
+            <Label Text="{Binding Title}" 
+                       TextColor="White"
+                       Padding="5"
+                       FontSize="Title"></Label>
+        </StackLayout>
+        <StackLayout Margin="0">
+            <Grid ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <SearchBar Placeholder="Search text..."
+                           FontSize="14"
+                           Grid.Column="0"></SearchBar>
+                <StackLayout Grid.Column="1">
+                    <Button Text="Search"
+                            BackgroundColor="Transparent"
+                            CornerRadius="12"
+                            FontSize="14"
+                            Padding="4"
+                            TextColor="Navy"
+                            BorderColor="Navy"
+                            Margin="5"
+                            BorderWidth="2"/>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+        <ListView ItemsSource="{Binding Machines}"
+                  Margin="0,8,0,0"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BorderColor="Navy"
+                               Margin="4"
+                               CornerRadius="6">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="{Binding machineCode}"
+                                       TextColor="Purple"
+                                       FontSize="18"></Label>
+                                    <Label Text="{Binding machineName}"
+                                       TextColor="Gray"
+                                       FontSize="14"></Label>
+                                </StackLayout>
+                                <StackLayout VerticalOptions="CenterAndExpand"
+                                             Grid.Column="1"
+                                             WidthRequest="80"
+                                             HorizontalOptions="EndAndExpand">
+                                    <Label Text="{Binding machineStatus.statusName}"
+                                           HorizontalOptions="EndAndExpand"
+                                           HorizontalTextAlignment="End"
+                                           FontSize="14">
+                                        <Label.Style>
+                                            <Style TargetType="Label">
+                                                <Setter Property="TextColor" Value="{Binding machineStatus.forceColor}"></Setter>
+                                            </Style>
+                                        </Label.Style>
+                                    </Label>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

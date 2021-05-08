@@ -14,5 +14,10 @@ namespace LS_Action.ViewModels
         {
             Title = "Menu";
         }
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+        }
     }
 }

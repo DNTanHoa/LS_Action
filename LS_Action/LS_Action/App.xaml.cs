@@ -1,3 +1,4 @@
+using LS_Action.Services;
 using LS_Action.ViewModels;
 using LS_Action.Views;
 using Prism;
@@ -32,6 +33,14 @@ namespace LS_Action
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<MainFunctionPage, MainFunctionPageViewModel>();
             containerRegistry.RegisterForNavigation<MachineStatusPage, MachineStatusPageViewModel>();
+
+            #region Register Service
+
+#if DEBUG
+            containerRegistry.RegisterSingleton<IMachineService, MockMachineService>();
+#endif
+
+#endregion
         }
     }
 }
