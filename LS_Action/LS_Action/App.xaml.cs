@@ -40,7 +40,8 @@ namespace LS_Action
             containerRegistry.RegisterSingleton<IMachineService, MockMachineService>();
 #endif
 
-#endregion
+            #endregion
+            containerRegistry.RegisterForNavigation<IssueListViewPage, IssueListViewPageViewModel>();
         }
     }
 }

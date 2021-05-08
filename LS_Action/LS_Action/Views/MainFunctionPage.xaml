@@ -23,8 +23,8 @@
                 </Grid.RowDefinitions>
                 <StackLayout Padding="10,5" Grid.Row="0">
                     <Frame BackgroundColor="Transparent"
-                   CornerRadius="6"
-                   BorderColor="Navy">
+                           CornerRadius="6"
+                           BorderColor="Navy">
                         <StackLayout Orientation="Horizontal">
                             <StackLayout>
                                 <Label Text="REPORT ISSUE" TextColor="Navy"></Label>
@@ -37,6 +37,9 @@
                             </StackLayout>
                         </StackLayout>
                     </Frame>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FunctionTappedCommand}"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
                 </StackLayout>
                 <StackLayout Padding="10,5" Grid.Row="1">
                     <Frame BackgroundColor="Transparent"

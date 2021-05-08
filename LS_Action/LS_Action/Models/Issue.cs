@@ -11,7 +11,9 @@ namespace LS_Action.Models
         public IssueStatuses issueStatus { get; set; }
         
         #region Sync Properties
+        public DateTime createAt { get; set; }
         public DateTime lastUpdateAt { get; set; }
+        public string createBy { get; set; }
         public string lastUpdateBy { get; set; }
         #endregion
     }
