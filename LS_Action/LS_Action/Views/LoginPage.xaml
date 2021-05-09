@@ -27,7 +27,7 @@
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <StackLayout Margin="10" Grid.Row="0">
-                        <Label Text="FACTORY ACTION" TextColor="Black"
+                        <Label Text="FACTORY HELPDESK" TextColor="Black"
                                FontSize="Title"
                                HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
                     </StackLayout>

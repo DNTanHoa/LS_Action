@@ -33,15 +33,19 @@ namespace LS_Action
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<MainFunctionPage, MainFunctionPageViewModel>();
             containerRegistry.RegisterForNavigation<MachineStatusPage, MachineStatusPageViewModel>();
+            containerRegistry.RegisterForNavigation<IssueListViewPage, IssueListViewPageViewModel>();
 
             #region Register Service
 
 #if DEBUG
             containerRegistry.RegisterSingleton<IMachineService, MockMachineService>();
+            containerRegistry.RegisterSingleton<IIssueService, MockIssueService>();
+#else
+            S
 #endif
 
             #endregion
-            containerRegistry.RegisterForNavigation<IssueListViewPage, IssueListViewPageViewModel>();
+            containerRegistry.RegisterForNavigation<IssueDetailViewPage, IssueDetailViewPageViewModel>();
         }
     }
 }

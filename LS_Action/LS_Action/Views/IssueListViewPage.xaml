@@ -3,6 +3,189 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
+             Title="{Binding Title}"
+             NavigationPage.HasNavigationBar="True"
+             prism:Navigation.CanNavigate="True"
              x:Class="LS_Action.Views.IssueListViewPage">
-  
+    <AbsoluteLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Margin="0" Grid.Row="0">
+                <ScrollView Orientation="Horizontal"
+                            Margin="0">
+                    <StackLayout Orientation="Horizontal"
+                                    Padding="5"
+                                    HorizontalOptions="FillAndExpand"
+                                    BackgroundColor="LightGray"
+                                    Margin="0">
+                        <StackLayout BackgroundColor="#ce93d8">
+                            <Label Text="Today"
+                                    Margin="0"
+                                    Padding="8"
+                                    TextColor="Purple"
+                                    FontSize="14"
+                                    HeightRequest="40"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="CenterAndExpand"></Label>
+                        </StackLayout>
+                        <StackLayout BackgroundColor="Transparent">
+                            <Label Text="7 Days Ago"
+                                    Margin="0"
+                                    Padding="8"
+                                    TextColor="Purple"
+                                    FontSize="14"
+                                    HeightRequest="40"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="CenterAndExpand"></Label>
+                        </StackLayout>
+                        <StackLayout BackgroundColor="Transparent">
+                            <Label Text="This month"
+                                    Margin="0"
+                                    Padding="8"
+                                    TextColor="Purple"
+                                    FontSize="14"
+                                    HeightRequest="40"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="CenterAndExpand"></Label>
+                        </StackLayout>
+                        <StackLayout BackgroundColor="Transparent">
+                            <Label Text="All"
+                                    Margin="0"
+                                    Padding="8"
+                                    TextColor="Purple"
+                                    FontSize="14"
+                                    HeightRequest="40"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="CenterAndExpand"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <StackLayout Margin="0" Grid.Row="1">
+                <Grid ColumnSpacing="0"
+                        Margin="5,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <SearchBar Placeholder="Search text..."
+                                FontSize="12"
+                                Grid.Column="0"></SearchBar>
+                    <StackLayout Grid.Column="1">
+                        <Button Text="Search"
+                                BackgroundColor="Transparent"
+                                CornerRadius="12"
+                                FontSize="12"
+                                Padding="0"
+                                HeightRequest="40"
+                                VerticalOptions="Center"
+                                TextColor="Navy"
+                                BorderColor="Navy"
+                                BorderWidth="2"/>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            <ListView ItemsSource="{Binding Issues}"
+                      HasUnevenRows="True"
+                      VerticalOptions="FillAndExpand"
+                      RowHeight="-1"
+                      Grid.Row="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid>
+                                    <Frame BorderColor="Navy"
+                                    Margin="4"
+                                    Padding="5"
+                                    CornerRadius="6">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Grid.Column="0">
+                                                <Label Text="{Binding issueDescription}"
+                                                TextColor="Navy"
+                                                FontSize="16"></Label>
+                                                <StackLayout Orientation="Horizontal" Spacing="3">
+                                                    <Label Text="Machine Code:"
+                                                    TextColor="Navy"
+                                                    FontSize="14"></Label>
+                                                    <Label Text="{Binding machine.machineCode}"
+                                                    TextColor="Navy"
+                                                    FontAttributes="Italic"
+                                                    FontSize="14"></Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" Spacing="3">
+                                                    <Label Text="{Binding machine.machineName}"
+                                                    TextColor="Navy"
+                                                    FontAttributes="Italic"
+                                                    FontSize="12"></Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" Spacing="3">
+                                                    <Label Text="Create By:"
+                                                    TextColor="Purple"
+                                                    FontAttributes="Italic"
+                                                    FontSize="12"></Label>
+                                                    <Label Text="{Binding createBy}"
+                                                    TextColor="Gray"
+                                                    FontAttributes="Italic"
+                                                    FontSize="12"></Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" Spacing="3">
+                                                    <Label Text="Create At:"
+                                                    TextColor="Purple"
+                                                    FontAttributes="Italic"
+                                                    FontSize="12"></Label>
+                                                    <Label Text="{Binding createAt, StringFormat='{0:dd-MMM-yyyy HH:mm}'}"
+                                                    TextColor="Gray"
+                                                    FontSize="12"></Label>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="CenterAndExpand"
+                                                    Grid.Column="1"
+                                                    WidthRequest="80"
+                                                    HorizontalOptions="EndAndExpand">
+                                                <Frame BackgroundColor="{Binding issueStatus.backgroundColor}"
+                                                Padding="8">
+                                                    <Label Text="{Binding issueStatus.statusName}"
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    HorizontalTextAlignment="Center"
+                                                    FontSize="14">
+                                                        <Label.Style>
+                                                            <Style TargetType="Label">
+                                                                <Setter Property="TextColor" 
+                                                                Value="{Binding issueStatus.forceColor}"></Setter>
+                                                            </Style>
+                                                        </Label.Style>
+                                                    </Label>
+                                                </Frame>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Frame  HeightRequest="25"
+                WidthRequest="25"
+                CornerRadius="50"
+                Margin="10,0,10,20"
+                AbsoluteLayout.LayoutFlags="PositionProportional"  
+                AbsoluteLayout.LayoutBounds=".95,.95,80,80" 
+                BackgroundColor="Navy">
+            <Image Source="plus.png" Aspect="AspectFill"></Image>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding AddNewCommand}"></TapGestureRecognizer>
+            </Frame.GestureRecognizers>
+        </Frame>
+    </AbsoluteLayout>
 </ContentPage>

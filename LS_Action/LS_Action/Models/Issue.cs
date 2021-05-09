@@ -9,6 +9,7 @@ namespace LS_Action.Models
         public int issueId { get; set; }
         public string issueDescription { get; set; }
         public IssueStatuses issueStatus { get; set; }
+        public Machines machine { get; set; }
         
         #region Sync Properties
         public DateTime createAt { get; set; }
