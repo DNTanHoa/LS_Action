@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="{Binding Title}"
+             x:Class="LS_Action.Views.SupporterListViewPage">
+    <StackLayout>
+        <StackLayout Margin="0" BackgroundColor="Navy" Padding="8">
+            <Label Text="{Binding Title}" 
+                   TextColor="White"
+                   Padding="5"
+                   FontSize="Title"></Label>
+        </StackLayout>
+        <StackLayout Margin="0">
+            <Grid ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <SearchBar Placeholder="Search text..."
+                           FontSize="14"
+                           Grid.Column="0"></SearchBar>
+                <StackLayout Grid.Column="1">
+                    <Button Text="Search"
+                            BackgroundColor="Transparent"
+                            CornerRadius="12"
+                            FontSize="14"
+                            Padding="4"
+                            TextColor="Navy"
+                            BorderColor="Navy"
+                            Margin="5"
+                            BorderWidth="2"/>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+        <ListView ItemsSource="{Binding Supporters}"
+                  Margin="0,8,0,0"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BorderColor="Navy"
+                               Margin="4"
+                               CornerRadius="6">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="{Binding fullname}"
+                                       TextColor="Purple"
+                                       FontSize="18"></Label>
+                                    <Label Text="{Binding email}"
+                                       TextColor="Gray"
+                                       FontSize="14"></Label>
+                                    <Label Text="{Binding phone}"
+                                       TextColor="Gray"
+                                       FontSize="14"></Label>
+                                </StackLayout>
+                                <StackLayout VerticalOptions="CenterAndExpand"
+                                             Grid.Column="1"
+                                             WidthRequest="80"
+                                             HorizontalOptions="EndAndExpand">
+                                    <Frame CornerRadius="100"
+                                           HeightRequest="50"
+                                           BorderColor="Navy"
+                                           WidthRequest="50"
+                                           BackgroundColor="Transparent">
+                                        <Image Source="{Binding avatar}" Aspect="AspectFill"
+                                               HeightRequest="50"
+                                               Margin="0"
+                                               VerticalOptions="FillAndExpand"
+                                               HorizontalOptions="FillAndExpand"
+                                               WidthRequest="50"></Image>
+                                    </Frame>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

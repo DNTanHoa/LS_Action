@@ -1,4 +1,5 @@
-﻿using LS_Action.Models;
+﻿using LS_Action.MockData;
+using LS_Action.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +9,13 @@ namespace LS_Action.Services
 {
     public class MockUserService : IUserService
     {
+        private readonly MockUserData userData;
+
+        public MockUserService(MockUserData userData)
+        {
+            this.userData = userData;
+        }
+
         public bool Authenticate(Users authenticateUser, out Users authenticatedUser)
         {
             authenticatedUser = null;
@@ -20,7 +28,7 @@ namespace LS_Action.Services
                     username = authenticateUser.username,
                     password = authenticateUser.password,
                     fullname = "Dương Nguyễn Tấn Hòa",
-                    avartar = "https://st4.depositphotos.com/4329009/19956/v/380/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg",
+                    avatar = "https://st4.depositphotos.com/4329009/19956/v/380/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg",
                     email = "erp.hoa@leadingstar.com.vn",
                     phone = "0359759402"
                 };
@@ -28,6 +36,11 @@ namespace LS_Action.Services
             }
 
             return false;
+        }
+
+        public List<Users> GetSupporters()
+        {
+            return userData.Supporters;
         }
     }
 }

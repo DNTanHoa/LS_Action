@@ -16,4 +16,5 @@
             Title="{Binding Title}">
     <local:MainFunctionPage Title="Home" IconImageSource="home.png" NavigationPage.HasNavigationBar="True"/>
     <local:MachineStatusPage Title="Machine Status" IconImageSource="machine.png"/>
+    <local:SupporterListViewPage Title="Supporters" IconImageSource="user.png"/>
 </TabbedPage>

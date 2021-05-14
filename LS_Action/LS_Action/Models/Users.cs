@@ -11,6 +11,6 @@ namespace LS_Action.Models
         public string fullname { get; set; }
         public string email { get; set; }
         public string phone { get; set; }
-        public string avartar { get; set; }
+        public string avatar { get; set; }
     }
 }

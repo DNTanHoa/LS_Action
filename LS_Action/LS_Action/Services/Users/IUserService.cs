@@ -9,5 +9,6 @@ namespace LS_Action.Services
     public interface IUserService
     {
         bool Authenticate(Users authenticateUser, out Users authenticatedUser);
+        List<Users> GetSupporters();
     }
 }

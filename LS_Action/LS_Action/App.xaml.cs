@@ -40,12 +40,13 @@ namespace LS_Action
 #if DEBUG
             containerRegistry.RegisterSingleton<IMachineService, MockMachineService>();
             containerRegistry.RegisterSingleton<IIssueService, MockIssueService>();
+            containerRegistry.RegisterSingleton<IUserService, MockUserService>();
 #else
-            S
 #endif
 
             #endregion
             containerRegistry.RegisterForNavigation<IssueDetailViewPage, IssueDetailViewPageViewModel>();
+            containerRegistry.RegisterForNavigation<SupporterListViewPage, SupporterListViewPageViewModel>();
         }
     }
 }
